@@ -1,0 +1,224 @@
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="icon" href="design/images/swap-logo-light.ico" type="icon type">
+
+    <!--Styling-->
+    <link rel="stylesheet" type="text/css" href="design/css/style.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <section>
+        <div class="container-fluid">
+            <!--Navigation bar-->
+
+            <nav class="navbar fixed-top navbar-expand-md navbar-dark fixed-top">
+                <div class="container">
+
+                    <!--Brand-->
+                    <a class="navbar-brand" href="/">&nbsp;<img src="design/images/swap-dark.png" class="brand"></a>
+
+                    <!--To display an icon in mobile view-->
+                    <button class="navbar-toggler animated-button" type="button" data-toggle="collapse"
+                        data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <div class="animated-icon"><span></span><span></span><span></span></div>
+                    </button>
+
+                    <!--Links-->
+                    <div class="collapse navbar-collapse" id="navbar">
+
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="team">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="training">Trainings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="webinar">Webinars</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="design/images/user-icon.png" width="30" height="30" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Log Out</a>
+                                </div>
+                            </li>
+                            <% if(sessionlogged==1){ %>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="design/images/user-icon.png" width="30" height="30" class="rounded-circle">
+                                    </a>
+                                    <form action="/logout" method="POST">
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <button type="submit" class="dropdown-item">Log Out</button>
+                                        </div>
+                                    </form>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!--End of Navigation bar-->
+    <br><br>
+    <section id="team">
+        <div class="container-fluid">
+            <br><br>
+            <center>
+                <img class="img-responsive team" src="design/images/Team.gif">
+                <div class="team-content">
+                    <br>
+                    <p>“It’s better to have a great team than a team of greats”</p>
+                    <p>We are a team of combined creativity of content creators, technical developers, executive
+                        marketers, strategic thinkers and instructional designers envisioning to provide a cutting edge
+                        curriculum designed in guidance with industrial experts and academia to develop the students
+                        job-ready professionals.</p>
+                    <p>As your partner we help you lot, but what's more important is how we help you move forward in
+                        your career. We do it in a cohesive way.</p>
+                </div>
+            </center>
+            <div class="row">
+                <div class="col-md-6">
+                    <center>
+                        <div class="container-fluid teams-desc">
+                            <img src="design/images/businessdevelopment.jpg" class="img-responsive teams">
+                            <div class="overlay">
+                                <div class="text">
+                                    We care on development of our company. We strategically plans sales methodologies
+                                    and provide marketing insights.
+                                    <br>
+                                    <a href="joinus" class="btn btn-danger">Join Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Business Development</h4>
+                    </center>
+                    <br><br>
+                </div>
+                <div class="col-md-6">
+                    <center>
+                        <div class="container-fluid teams-desc">
+                            <img src="design/images/contentcreation.jpg" class="img-responsive teams">
+                            <div class="overlay">
+                                <div class="text">
+                                    We maintain the Social media handles and design posters and make videos to achieve
+                                    customer reach.
+                                    <br>
+                                    <a href="joinus" class="btn btn-danger">Join Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Content Creation</h4>
+                    </center>
+                    <br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <center>
+                        <div class="container-fluid teams-desc">
+                            <img src="design/images/operations.jpg" class="img-responsive teams">
+                            <div class="overlay">
+                                <div class="text">
+                                    We take care in planning events and workshops and guide our customers throughout
+                                    their placement process.
+                                    <br>
+                                    <a href="joinus" class="btn btn-danger">Join Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Operations</h4>
+                    </center>
+                    <br><br>
+                </div>
+                <div class="col-md-6">
+                    <center>
+                        <div class="container-fluid teams-desc">
+                            <img src="design/images/researchanddevelopment.jpg" class="img-responsive teams">
+                            <div class="overlay">
+                                <div class="text">
+                                    Technical: We work on deep learning projects and assist in designing.
+                                    <br><br>
+                                    Consumer Research: We prioritize consumer needs and deals with sales and marketing.
+                                    <br>
+                                    <a href="joinus" class="btn btn-danger">Join Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Research and Development</h4>
+                    </center>
+                    <br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <center>
+                        <div class="container-fluid teams-desc">
+                            <img src="design/images/webdevelopment.jpg" class="img-responsive teams">
+                            <div class="overlay">
+                                <div class="text">
+                                    We take care in Building websites and maintaining them.
+                                    <br>
+                                    <a href="joinus" class="btn btn-danger">Join Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Web Development</h4>
+                    </center>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br><br>
+    <script src="design/js/block.js"></script>
+    <script src="design/js/navbar.js"></script>
+    <footer class="footer mt-auto py-3" style="background-color: #000000;">
+        <div class="container text-center">
+        <a href=" https://instagram.com/swapincofficial?igshid=13lx5d5x4b86i"><i class="fab fa-instagram" style="font-size:30px;color:crimson;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/company/swapinc"><i class="fa fa-linkedin" style="font-size:30px;color:rgb(0, 119, 181)"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://swapincvec.medium.com"><i class="fab fa-medium" style="font-size:30px;color:white;"></i></a>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>

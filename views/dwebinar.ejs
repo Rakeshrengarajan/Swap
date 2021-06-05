@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Webinars</title>
+
+    <link rel="stylesheet" href="admin/css/styles.css">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <link rel="icon" href="admin/images/swap-logo-light.ico" type="icon type">
+</head>
+
+<body>
+    <section id="nav-swap" style="background-color: #000000" ;>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+                <img src="admin/images/swap-dark.png" alt="" width="75" height="30" style="margin-left: 55px;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-auto">
+                        <form action="/alogout" method="POST">
+                            <li class="nav-item">
+                                <button type="submit"style="background-color: #000000; border:none; color:#cccccc" class="btn btn-dark">Logout</a>
+                            </li>
+                        </form>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </section>
+
+    <section id="swap-content" style="background-color: rgb(247, 247, 247);">
+        <div class="container-fluid" style="padding: 2rem;">
+            <h2 style="padding-top: 2rem;">New Webinar</h2>
+            <a class="btn btn-outline-danger" style="margin-top: 1.3rem;" href="/dindex" role="button">Go Back</a>
+
+            <form style="padding-top: 2rem;" action="/wevent" method="post" enctype="multipart/form-data">
+                <div class="form-row create-form">
+                    <div class="form-group col-md-6 form-pad">
+                        <label>Webinar Name</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6 form-pad">
+                        <label>Domain</label>
+                        <input type="text" name="domain" class="form-control">
+                    </div>
+                </div>
+                <div class="form-row create-form ">
+                    <div class="form-group col-md-6 form-pad">
+                        <label>Registration Deadline</label>
+                        <input type="date" name="deadline" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6 form-pad">
+                        <label>Event Date</label>
+                        <input type="date" name="date" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-row create-form ">
+                    <div class="form-group col-md-6 form-pad">
+                        <label>Event Time</label>
+                        <input type="time" name="time" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6 form-pad">
+                        <label>Meeting Link</label>
+                        <input type="url" name="link" class="form-control">
+                    </div>
+
+                </div>
+                <div class="form-row create-form ">
+                    <div class="form-group col-md-6 form-pad">
+                        <label>Price</label>
+                        <input type="text" name="price" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6 form-pad">
+                        <label>Poster Upload</label>
+                        <input type="file" name="webinar" accept="image/*" class="form-control" id="inputGroupFile01">
+                    </div>
+                </div>
+
+                <div class="text-center" style="padding-top: 1rem;">
+                    <button type="submit" class="btn btn-dark btn-lg">Create Event</button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <script src="admin/js/block.js"></script>
+    <script src="admin/js/navbar.js"></script>
+    <!-- Bootstrap JS CDN -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html>

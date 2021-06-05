@@ -1,0 +1,303 @@
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Fav Icon-->
+    <link rel="icon" href="design/images/swap-logo-light.ico" type="icon type">
+
+    <!--Styling-->
+    <link rel="stylesheet" type="text/css" href="design/css/style.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <section>
+        <div class="container-fluid">
+            <!--Navigation bar-->
+
+            <nav class="navbar fixed-top navbar-expand-md navbar-dark fixed-top">
+                <div class="container">
+
+                    <!--Brand-->
+                    <a class="navbar-brand" href="#">&nbsp;<img src="design/images/swap-dark.png" class="brand"></a>
+
+                    <!--To display an icon in mobile view-->
+                    <button class="navbar-toggler animated-button" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="animated-icon"><span></span><span></span><span></span></div>
+                    </button>
+
+                    <!--Links-->
+                    <div class="collapse navbar-collapse" id="navbar">
+
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/team">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/training">Trainings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/webinar">Webinars</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contact">Contact</a>
+                            </li>
+                            <% if(sessionlogged==1){ %>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="design/images/user-icon.png" width="30" height="30" class="rounded-circle">
+                                </a>
+                                <form action="/logout" method="POST">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <button type="submit" class="dropdown-item">Log Out</button>
+                                    </div>
+                                </form>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!--End of Navigation bar-->
+
+    <section id="about">
+        <div class="container-fluid home">
+            <br><br><br>
+            <div class="row">
+                <div class="col-lg-6">
+                    <center>
+                        <img src="design/images/home.png" class="img-responsive home-img">
+                    </center>
+                </div>
+                <div class="col-lg-6">
+                    <center>
+                        <br><br>
+                        <p class="about">
+                            We obsess in visualizing the role of technology in transforming the current academic methodology. We believe that the blend of Education and Technology will help to build innovative learning methods that empowers the youth to be productive in the industrial field. We aim to conceptualize and redesign the learning experiences and to connect the industrial technology with academia through modish ideas and meticulous execution.
+                        </p>
+                        <a class="btn btn-outline-warning" href="/accsignup">Sign Up</a>
+                        <br><br>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br><br>
+
+    <section id="vision-mission">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <center>
+                        <img src="design/images/logo.png" class="img-responsive logo">
+                    </center>
+                </div>
+                <br><br>
+                <div class="col-md-5">
+                    <div class="jumbotron shadow p-3 mb-5 bg-white rounded">
+                        <p>
+                            <i class="fa fa-line-chart icon" style="font-size: 24px;color:indigo;"></i>&nbsp;To integrate and architect the academia with the cutting-edge emerging technologies and to make the students dynamic and adaptive players in the competitive world.
+                        </p>
+                        <p><i class="fa fa-bullseye icon" style="font-size: 24px;color:red;"></i>&nbsp;To bridge the industry academia gap and transform the students with conceptual learning methodologies and making them professionals.</p>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </section>
+
+    <br><br>
+
+    <section id="Think">
+        <div class="container-fluid">
+            <center>
+                <img src="design/images/Think.gif" class="img-responsive thinkandsolution">
+            </center>
+        </div>
+    </section>
+
+    <br><br>
+
+    <section id="whyswap">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <center>
+                        <figure><i class='fas fa-book-open icon' style='font-size:36px;color: blue;'></i></figure>
+                        <figcaption>Deep Understanding</figcaption>
+                    </center>
+                    <br><br>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <figure><i class='fas fa-chalkboard-teacher icon' style='font-size:36px;color:crimson;'></i></figure>
+                        <figcaption>Conceptual learning framework</figcaption>
+                    </center>
+                    <br><br>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <figure><i class='fas fa-cogs icon' style='font-size:36px;color:brown;'></i></figure>
+                        <figcaption>Blend of Industrial techniques</figcaption>
+                    </center>
+                    <br><br>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <center>
+                        <figure><i class="fa fa-lightbulb-o icon" style='font-size:36px;color:orange;'></i></figure>
+                        <figcaption>Productive Mind</figcaption>
+                    </center>
+                    <br><br>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <figure><i class='far fa-grin-beam icon' style='font-size:36px;color:green;'></i></figure>
+                        <figcaption>Customer Success</figcaption>
+                    </center>
+                    <br><br>
+                </div>
+
+                <div class="col-md-2"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <br><br>
+
+
+    <section id="Building blocks">
+        <h3 class="block-head">Building Blocks of Swap</h3>
+        <br><br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                        <div class="card">
+                            <img class="card-img-top" src="design/images/Daniel Durairaj.jpg">
+                            <div class="card-body">
+                                <h4 class="name card-title">Daniel Durairaj</h4>
+                                <p class="name card-text">CEO</p>
+                            </div>
+                        </div>
+                    </center>
+                    <br><br>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <div class="card">
+                            <img class="card-img-top" src="design/images/Vinayak Hebbar.jpg">
+                            <div class="card-body">
+                                <h4 class="name card-title">Vinayak Hebbar</h4>
+                                <p class="name card-text">COO</p>
+                            </div>
+                        </div>
+                    </center>
+                    <br><br>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <div class="card">
+                            <img class="card-img-top" src="design/images/naveenkumar.jpg">
+                            <div class="card-body">
+                                <h4 class="name card-title">NaveenKumar N</h4>
+                                <p class="name card-text">Head of Designs</p>
+                            </div>
+                        </div>
+                    </center>
+                    <br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                        <div class="card">
+                            <img class="card-img-top" src="design/images/Sriram.jpeg">
+                            <div class="card-body">
+                                <h4 class="name card-title">Sriram S</h4>
+                                <p class="name card-text">Head of R&D , Consumer Division</p>
+                            </div>
+                        </div>
+                    </center>
+                    <br><br>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <div class="card">
+                            <img class="card-img-top" src="design/images/Somasundaram T.S.png">
+                            <div class="card-body">
+                                <h4 class="name card-title">Somasundaram T S</h4>
+                                <p class="name card-text">Head of R&D , Projects</p>
+                            </div>
+                        </div>
+                    </center>
+                    <br><br>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <div class="card">
+                            <img class="card-img-top" src="design/images/Kasi Vishwanathan V.jpg">
+                            <div class="card-body">
+                                <h4 class="name card-title">Kasi Vishwanathan V</h4>
+                                <p class="name card-text">Head of Sales and Marketing</p>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <br>
+    </section>
+
+    <footer class="footer mt-auto py-3" style="background-color: #000000;">
+        <div class="container text-center">
+            <a href=" https://instagram.com/swapincofficial?igshid=13lx5d5x4b86i"><i class="fab fa-instagram" style="font-size:30px;color:crimson;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/company/swapinc"><i class="fa fa-linkedin" style="font-size:30px;color:rgb(0, 119, 181)"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://swapincvec.medium.com"><i class="fab fa-medium" style="font-size:30px;color:white;"></i></a>
+        </div>
+    </footer>
+
+    <script src="design/js/block.js"></script>
+    <script src="design/js/navbar.js"></script>
+
+</body>
+
+</html>

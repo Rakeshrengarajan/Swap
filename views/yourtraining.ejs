@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="icon" href="design/images/swap-logo-light.ico" type="icon type">
+    <!--Styling-->
+    <link rel="stylesheet" type="text/css" href="design/css/style.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <section>
+        <div class="container-fluid">
+            <!--Navigation bar-->
+
+            <nav class="navbar fixed-top navbar-expand-md navbar-dark fixed-top">
+                <div class="container">
+
+                    <!--Brand-->
+                    <a class="navbar-brand" href="/">&nbsp;<img src="design/images/swap-dark.png" class="brand"></a>
+
+                    <!--To display an icon in mobile view-->
+                    <button class="navbar-toggler animated-button" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="animated-icon"><span></span><span></span><span></span></div>
+                    </button>
+
+                    <!--Links-->
+                    <div class="collapse navbar-collapse" id="navbar">
+
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="team">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Trainings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/webinar">Webinars</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contact">Contact</a>
+                            </li>
+                            <% if(sessionlogged==1){ %>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="design/images/user-icon.png" width="30" height="30" class="rounded-circle">
+                                </a>
+                                <form action="/logout" method="POST">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <button type="submit" class="dropdown-item">Log Out</button>
+                                    </div>
+                                </form>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!--End of Navigation bar-->
+    
+    <br><br><br><br>
+    <% if(sessionlogged==1){ %>
+    <div class="text-right" style="padding-right: 2rem;">
+        <a class="btn btn-outline-dark"  href="/training" role="button">Go Back</a>
+    </div>
+    <% } %>
+
+    <br>
+            <h2 style="padding-top: 2rem;" class="text-center">Your Trainings</h2>
+              <div class="container-fluid" style="padding: 2rem;">
+                <% array.forEach(function(a) { %>
+                <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold"><%=a.tname%></div>
+                    Date : <%=a.tdate%><br>
+                    Link : <a style="text-decoration: none;" target="_blank" href=<%=a.tlink%>>Go to link</a><br>
+                    Price: <%=a.tprice%>
+                  </div>
+                  
+                </li>
+                </ol>
+                <% }) %>
+            </div>
+ 
+ 
+        <script src="design/js/block.js"></script>
+        <script src="design/js/navbar.js"></script>
+    <footer class="footer mt-auto py-3" style="background-color: #000000;">
+        <div class="container text-center">
+        <a href=" https://instagram.com/swapincofficial?igshid=13lx5d5x4b86i"><i class="fab fa-instagram" style="font-size:30px;color:crimson;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/company/swapinc"><i class="fa fa-linkedin" style="font-size:30px;color:rgb(0, 119, 181)"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://swapincvec.medium.com"><i class="fab fa-medium" style="font-size:30px;color:white;"></i></a>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

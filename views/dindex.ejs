@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap - Dashboard</title>
+
+    <link rel="stylesheet" href="admin/css/styles.css">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <!--Fav Icon-->
+    <link rel="icon" href="admin/images/swap-logo-light.ico" type="icon type">
+</head>
+
+<body>
+    <section id="nav-swap" style="background-color: #000000" ;>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+                <img src="admin/images/swap-dark.png" alt="" width="75" height="30" style="margin-left: 55px;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-auto">
+                        <form action="/alogout" method="POST">
+                            <li class="nav-item">
+                                <button type="submit" style="background-color: #000000; border:none; color:#cccccc" class="btn btn-dark">Logout</a>
+                            </li>
+                        </form>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+
+    <section id="swap-content" style="background-color: rgb(247, 247, 247);">
+        <div class="container-fluid" style="padding: 2rem;">
+            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active jump" id="analysis-tab" data-toggle="tab" href="#analysis" role="tab" aria-controls="analysis" aria-selected="true"><i class="fas fa-chart-pie"></i> Analysis</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link jump" id="trainings-tab" data-toggle="tab" href="#trainings" role="tab" aria-controls="create" aria-selected="true"><i class="fas fa-tools"></i> Trainings</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link jump" id="webinars-tab" data-toggle="tab" href="#webinars" role="tab" aria-controls="flights" aria-selected="false"><i class="fas fa-laptop-code"></i> Webinars</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link jump" id="records-tab" data-toggle="tab" href="#records" role="tab" aria-controls="records" aria-selected="false"><i class="fas fa-history"></i> Records</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link jump" id="career-tab" data-toggle="tab" href="#career" role="tab" aria-controls="career" aria-selected="false"><i class="fas fa-book"></i> Career</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane active" id="analysis" role="tabpanel" aria-labelledby="analysis-tab">
+                    <h2 style="padding-top: 2rem;">Analysis</h2>
+
+
+                </div>
+
+                <div class="tab-pane fade" id="trainings" role="tabpanel" aria-labelledby="trainings-tab">
+                    <h2 style="padding-top: 2rem;">Trainings</h2>
+                    <div class="text-right">
+                        <a class="btn btn-outline-dark" href="/dtraining" role="button">+ Add New Training</a>
+
+                    </div>
+                    <h4 style="padding-top: 2rem;">All Active Trainings</h4>
+                    <div class="row">
+                        <% training.forEach(function(training) { %>
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" style="padding-top: 2rem;">
+                            <div class="card">
+
+
+                                <img src="data:image/<%=training.timage.contentType%>;base64,
+                     <%=training.timage.image.toString('base64')%>" height="300" alt="">
+
+
+                                <div class="card-body">
+                                    <h5 class="card-title"><%=training.tname%></h5>
+                                    <p class="card-text"><span class="badge rounded-pill bg-info text-light"><%=training.tdomain%></span></p>
+
+                                    <p class="card-text">Date : <%=training.tdate%></p>
+                                    <p class="card-text">Duration :<%=training.tduration%></p>
+
+                                    <p class="card-text">Price : ₹<%=training.tprice%>/-
+                                    </p>
+                                    <form action="/tremove" method="POST">
+                                        <input type="hidden" name="remove" value="<%=training._id%>">
+                                        <button type="submit" class="btn btn-danger">Remove Event</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                    </div>
+
+
+                </div>
+
+
+                <div class="tab-pane fade" id="webinars" role="tabpanel" aria-labelledby="webinars-tab">
+                    <h2 style="padding-top: 2rem;">Webinars</h2>
+                    <div class="text-right">
+                        <a class="btn btn-outline-dark" href="/dwebinar" role="button">+ Add New Webinar</a>
+                    </div>
+                    <h4 style="padding-top: 2rem;">All Active Webinars</h4>
+                    <div class="row">
+                        <% webinar.forEach(function(webinar) { %>
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" style="padding-top: 2rem;">
+                            <div class="card">
+                                <img src="data:image/<%=webinar.wimage.contentType%>;base64,
+                     <%=webinar.wimage.image.toString('base64')%>" height="300" alt="">
+
+
+                                <div class="card-body">
+                                    <h5 class="card-title"><%=webinar.wname%></h5>
+                                    <p class="card-text"><span class="badge rounded-pill bg-info text-light"><%=webinar.wdomain%></span></p>
+                                    <p class="card-text">Time : <%=webinar.wtime%></p>
+                                    <p class="card-text">Date : <%=webinar.wdate%></p>
+                                    <p class="card-text">Price : ₹ <%=webinar.wprice%>/-</p>
+
+                                    <form action="/wremove" method="POST">
+                                        <input type="hidden" name="remove" value="<%=webinar._id%>">
+                                        <button type="submit" class="btn btn-danger">Remove Event</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="career" role="tabpanel" aria-labelledby="career-tab">
+                    <h2 style="padding-top: 2rem;">Career</h2>
+                    <div class="container-fluid" style="padding: 2rem;">
+                        <% careeritems.forEach(function(careeritems) { %>
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold"><%=careeritems.name%></div>
+                                    Role : <%=careeritems.domain%>
+                                </div>
+                                <a style="text-decoration: none;" href=<%=careeritems.resumelink%>>View Profile</a>
+                            </li>
+                        </ol>
+                        <% }) %>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane fade" id="records" role="tabpanel" aria-labelledby="records-tab">
+                    <h2 style="padding-top: 2rem;">Records</h2>
+                    <div class="container-fluid" style="padding: 2rem;">
+                        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="rec-web-tab" data-toggle="tab" href="#rec-web" role="tab" aria-controls="rec-web" aria-selected="true">Webinars' History</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="rec-train-tab" data-toggle="tab" href="#rec-train" role="tab" aria-controls="rec-train" aria-selected="false">Trainings'History</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="rec-web" role="tabpanel" aria-labelledby="rec-web-tab">
+                                <h4 style="padding-top: 2rem; padding-bottom: 2rem;">Webinar Record</h4>
+                                <div class="container-fluid" style="padding: 2rem;">
+                                    <% permanentwebinar.forEach(function(w) { %>
+                                    <form id="webinarform" action="/webinarinfos" method="post">
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1" style="font-weight: 700;"><%=w.wname%></h5>
+                                                <input type="hidden" name="wname" value="<%=w.wname%>">
+                                                <input type="hidden" name="wdate" value="<%=w.wdate%>">
+                                                <small><span class="badge rounded-pill bg-info text-light"><%=w.wdomain%></span></small>
+                                            </div>
+                                            <p class="mb-1">Date : <%=w.wdate%></p>
+
+                                            <button class="btn btn-outline-dark" style="padding: 0 2rem;" type="submit">View</button>
+
+
+                                        </a>
+                                    </form>
+
+                                    <% }) %>
+                                </div>
+
+                            </div>
+
+
+                            <div class="tab-pane fade" id="rec-train" role="tabpanel" aria-labelledby="rec-train-tab">
+                                <h4 style="padding-top: 2rem; padding-bottom: 2rem;">Training Record</h4>
+                                <div class="container-fluid" style="padding: 2rem;">
+                                    <% permanenttraining.forEach(function(t) { %>
+                                    <form id="trainingform" action="/traininginfos" method="post">
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1" style="font-weight: 700;"><%=t.tname%></h5>
+                                                <input type="hidden" name="tname" value="<%=t.tname%>">
+                                                <input type="hidden" name="tdate" value="<%=t.tdate%>">
+                                                <small><span class="badge rounded-pill bg-info text-light"><%=t.tdomain%></span></small>
+                                            </div>
+                                            <p class="mb-1">Date : <%=t.tdate%></p>
+
+                                            <button class="btn btn-outline-dark" style="padding: 0 2rem;" type="submit">View</button>
+
+
+                                        </a>
+                                    </form>
+
+                                    <% }) %>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bootstrap JS CDN -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="admin/js/block.js"></script>
+    <script src="admin/js/navbar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Fav Icon-->
+    <link rel="icon" href="design/images/swap-logo-light.ico" type="icon type">
+
+    <!--Styling-->
+    <link rel="stylesheet" type="text/css" href="design/css/style.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <section>
+        <div class="container-fluid">
+            <!--Navigation bar-->
+
+            <nav class="navbar fixed-top navbar-expand-md navbar-dark fixed-top">
+                <div class="container">
+
+                    <!--Brand-->
+                    <a class="navbar-brand" href="/">&nbsp;<img src="design/images/swap-dark.png" class="brand"></a>
+
+                    <!--To display an icon in mobile view-->
+                    <button class="navbar-toggler animated-button" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="animated-icon"><span></span><span></span><span></span></div>
+                    </button>
+
+                    <!--Links-->
+                    <div class="collapse navbar-collapse" id="navbar">
+
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/team">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/training">Trainings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Webinars</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contact">Contact</a>
+                            </li>
+                            <% if(sessionlogged==1){ %>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="design/images/user-icon.png" width="30" height="30" class="rounded-circle">
+                                </a>
+                                <form action="/logout" method="POST">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <button type="submit" class="dropdown-item">Log Out</button>
+                                    </div>
+                                </form>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!--End of Navigation bar-->
+
+    <br><br><br><br>
+    <% if(sessionlogged==1){ %>
+    <div class="text-right" style="padding-right: 2rem;">
+        <a class="btn btn-outline-dark" href="/yourwebinar">Your Webinars</a>
+    </div>
+    <% } %>
+    <br>
+
+    <section id="trainings">
+        <% if(alertbox == 1 ){ %>
+        <br>
+        <div class="alert alert-warning">
+            <strong>You have already registered for this Webinar. Check your mail for further details... </strong>
+        </div>
+        <%}if(alertbox == 2){ %>
+        <br>
+        <div class="alert alert-success">
+            <strong>You have successfully registered for this Webinar. Check your mail for further details... </strong>
+        </div>
+        <% } %>
+        <div class="container-fluid">
+            <div class="row">
+                <% items.forEach(function(webinar) { %>
+                <div class="col-lg-4">
+                    <center>
+                        <div class="card event">
+                            <img src="data:image/<%=webinar.wimage.contentType%>;base64,
+                     <%=webinar.wimage.image.toString('base64')%>" height="300" alt="">
+                            <form action="/wregister" method="POST">
+                                <div class="card-body">
+                                    <h4 style="font-weight: 700; height: 40;"><%=webinar.wname%></h4>
+                                    <input type="hidden" name="wname" value="<%=webinar.wname%>">
+                                    <input type="hidden" name="wdate" value="<%=webinar.wdate%>">
+                                    <input type="hidden" name="wdomain" value="<%=webinar.wdomain%>">
+                                    <input type="hidden" name="wdeadline" value="<%=webinar.wdeadline%>">
+                                    <input type="hidden" name="wtime" value="<%=webinar.wtime%>">
+                                    <input type="hidden" name="wlink" value="<%=webinar.wlink%>">
+                                    <input type="hidden" name="wduration" value="<%=webinar.wduration%>">
+                                    <input type="hidden" name="wprice" value="<%=webinar.wprice%>">
+                                    <p class="card-text">Event Date : <%=webinar.wdate%></p>
+                                    <p class="card-text">Time : <%=webinar.wtime%></p>
+                                    <p class="card-text">Price : ₹ <%=webinar.wprice%>/-</p>
+                                    <button type="submit" style="padding:5px 120px;" class="btn btn-success">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </center>
+                    <br><br><br>
+                </div>
+                <% }) %>
+
+                <script>
+                    window.setTimeout(function() {
+                        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                            $(this).remove();
+                        });
+                    }, 5000);
+
+                </script>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="footer mt-auto py-3" style="background-color: #000000;">
+        <div class="container text-center">
+            <a href=" https://instagram.com/swapincofficial?igshid=13lx5d5x4b86i"><i class="fab fa-instagram" style="font-size:30px;color:crimson;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/company/swapinc"><i class="fa fa-linkedin" style="font-size:30px;color:rgb(0, 119, 181)"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://swapincvec.medium.com"><i class="fab fa-medium" style="font-size:30px;color:white;"></i></a>
+        </div>
+    </footer>
+
+    <script src="design/js/block.js"></script>
+    <script src="design/js/navbar.js"></script>
+
+</body>
+
+</html>

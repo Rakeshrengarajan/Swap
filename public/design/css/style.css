@@ -171,7 +171,12 @@ body {
     width: 100%;
     height: 300px;
 }
-
+#forum
+{
+    letter-spacing: normal;
+    font-weight: bold;
+    text-align:center;
+}
 .footer {
     background-color: black;
     padding: 20px;

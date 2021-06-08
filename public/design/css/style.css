@@ -177,6 +177,17 @@ body {
     font-weight: bold;
     text-align:center;
 }
+.btn-outline-dark:hover
+{
+    color:white;
+    background-color: black!important;
+}
+.btn-outline-dark
+{
+    color:black;
+    border-color: black!important;
+    font-weight: bold;
+}
 .footer {
     background-color: black;
     padding: 20px;
